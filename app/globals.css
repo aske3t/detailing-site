@@ -1,26 +1,247 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #01040a;
+  --foreground: #ffffff;
+  --accent: #b11226;
+  --surface: #0a1a1f;
+  --anchor-offset: clamp(96px, 11vh, 132px);
+  --logo-size: 200px;
+  --social-logo-size: 56px;
+  --font-heading: var(--font-heading-runtime), "Oswald", "Bebas Neue", "Arial Narrow", sans-serif;
+  --font-body: var(--font-body-runtime), "Montserrat", "Trebuchet MS", "Gill Sans", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--anchor-offset);
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+}
+
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/images/workshop-custom.jpg"), url("/images/workshop-bg-1.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: saturate(0.6) brightness(0.34) contrast(0.95);
+}
+
+.site-header {
+  position: sticky;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.74);
+}
+
+.site-header__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.site-brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding-left: calc(var(--logo-size) + 0.8rem);
+  min-width: 0;
+}
+
+.site-brand__logo {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  object-fit: contain;
+  opacity: 1;
+  mix-blend-mode: normal;
+  filter: brightness(1.03) contrast(1.04);
+}
+
+.site-brand__text {
+  white-space: nowrap;
+}
+
+.site-brand__text-wrap {
+  position: relative;
+  display: inline-block;
+  align-items: center;
+  padding: 0.46rem 0.64rem;
+  line-height: 1;
+}
+
+.site-brand__text-wrap::before,
+.site-brand__text-wrap::after {
+  content: "";
+  position: absolute;
+  left: -0.18rem;
+  right: -0.18rem;
+  height: 4px;
+}
+
+.site-brand__text-wrap::before {
+  top: -0.34rem;
+  background: #b11226;
+}
+
+.site-brand__text-wrap::after {
+  bottom: -0.34rem;
+  background: #0a1a2f;
+}
+
+.site-header-flag {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(64px, 8vw, 108px);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  pointer-events: none;
+}
+
+.site-header-flag--left {
+  left: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.site-header-flag--right {
+  right: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-header-flag__top {
+  background: #b11226;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.site-header-flag__bottom {
+  background: #0a1a2f;
+}
+
+@media (min-width: 768px) {
+  .site-header__inner {
+    padding-left: clamp(92px, 9vw, 140px);
+    padding-right: clamp(92px, 9vw, 140px);
+  }
+}
+
+.site-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(1, 4, 10, 0.62) 0%, rgba(1, 4, 10, 0.74) 50%, rgba(1, 4, 10, 0.84) 100%);
+}
+
+.section-wrap {
+  @apply mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12;
+}
+
+.title-font {
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.site-nav-link {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1.04rem;
+  font-weight: 800;
+  font-variation-settings: "wght" 800;
+  letter-spacing: 0.015em;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.social-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+  line-height: 0;
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.social-logo-link:hover {
+  transform: scale(1.04);
+  filter: brightness(1.06);
+}
+
+.social-logo {
+  width: var(--social-logo-size);
+  height: var(--social-logo-size);
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+.social-logo--telegram {
+  transform: scale(0.92);
+}
+
+.social-logo--instagram {
+  transform: scale(1.02);
+}
+
+.social-logo--whatsapp {
+  transform: scale(1.02);
+}
+
+.section-title-underline {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  line-height: 1.02;
+  padding: 0 0 0.32em 0;
+}
+
+.section-title-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: #0a1a2f;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.card-base {
+  @apply rounded-xl border border-white/12 bg-black/45 p-6 transition-colors duration-200 hover:border-white/20 hover:bg-black/55;
+}
+
+.price-text {
+  @apply mt-2 text-2xl font-bold text-accent;
+  color: var(--accent);
+}
+
+section[id] {
+  scroll-margin-top: var(--anchor-offset);
 }

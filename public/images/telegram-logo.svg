@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Telegram logo">
+  <defs>
+    <radialGradient id="tgRed" cx="34%" cy="28%" r="74%">
+      <stop offset="0%" stop-color="#ff3a74" />
+      <stop offset="58%" stop-color="#da003d" />
+      <stop offset="100%" stop-color="#76001d" />
+    </radialGradient>
+  </defs>
+  <circle cx="512" cy="512" r="500" fill="url(#tgRed)" />
+  <path
+    fill="#ffffff"
+    d="M788 232c24-9 48 11 42 37l-95 430c-5 25-35 36-55 20L523 597l-84 78c-15 14-39 3-38-17l7-98 266-244c11-10-2-27-15-18L319 511l-117-40c-21-7-22-36-3-44z"
+  />
+</svg>
