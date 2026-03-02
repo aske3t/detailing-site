@@ -36,94 +36,323 @@ const services: ServiceCategory[] = [
             price: "990 Kč",
           },
           {
-            option: "SUV / MPV",
-            price: "2 000 Kč",
+            option: "SUV",
+            price: "1490 Kč",
           },
+          {
+            option: "Dodávka",
+            price: "1790 Kč",
+          }
         ],
+      },
+      {
+        name: "Standardní chemické čištění interiéru",
+        description: "1990 Kč",
+        options: [
+          {
+            option: "Malý automobil",
+            price: "1990",
+          },
+          {
+            option: "SUV",
+            price: "2590",
+          },
+          {
+            option: "Dodávka",
+            price: "2990",
+          }
+        ]
       },
     ],
   },
   {
     title: "Mytí exteriéru",
-    price: "od 790 Kč",
+    price: "od 690 Kč",
     text: "Šetrné ruční mytí exteriéru vozidla včetně kol a detailů s použitím profesionální kosmetiky.",
-    items: [],
+    items: [
+      {
+        name: "Standardní ruční mytí karoserie",
+        description: "",
+        options:[
+          {
+            option: "Malý automobil",
+            price: "690 Kč",
+          },
+          {
+            option: "SUV",
+            price: "790 Kč",
+          },
+          {
+            option: "Dodávka",
+            price: "890 Kč",
+          },
+        ]
+      },
+      {
+        name: "Profesionální mytí karoserie s použitím autokosmetiky",
+        description: "",
+        options: [
+          {
+            option: "Malý automobil",
+            price: "1500 Kč",
+          },
+          {
+            option: "SUV/Dodávka",
+            price: "1800 Kč",
+          },
+        ]
+      }
+
+    ],
   },
   {
     title: "Leštění laku",
-    price: "od 5 990 Kč",
+    price: "od 4 990 Kč",
     text: "Strojní leštění laku pro odstranění mikroškrábanců, hologramů a navrácení hlubokého lesku karoserie.",
-    items: [],
+    items: [
+      {
+        name: "Leštění laku – 1 krok",
+        description: "",
+        options: [
+          {
+            option: "Malý automobil",
+            price: "4990 Kč",
+          },
+          {
+            option: "SUV",
+            price: "5790 Kč",
+          },
+          {
+            option: "Dodávka",
+            price: "6690 Kč",
+          }
+        ]
+      },
+      {
+        name: "Leštění laku – 2 kroky",
+        description: "",
+        options: [
+          {
+            option: "Malý automobi",
+            price: "8990 Kč",
+          },
+          {
+            option: "SUV",
+            price: "9990 Kč",
+          },
+          {
+            option: "Dodávka",
+            price: "12490 Kč",
+          }
+        ]
+      },
+      {
+        name: "Kompletní korekce laku",
+        description: "",
+        options:[
+          {
+            option: "Malý automobil",
+            price: "12990 Kč",
+          },
+          {
+            option: "SUV",
+            price: "14990 Kč",
+          },
+          {
+            option: "Dodávka",
+            price: "17490 Kč",
+          }
+        ]
+      }
+    ],
   },
   {
     title: "Skla a světla",
-    price: "od 990 Kč",
+    price: "od 490 Kč",
     text: "Kompletní péče o skla a světlomety – hloubkové čištění, odstranění nánosů a zašlého filmu. Volitelně renovace světlometů pro lepší viditelnost a estetiku.",
-    items: [],
+    items: [
+      {
+        name: "Renovace světlometů",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "990 Kč"
+          },
+        ]
+      },
+      {
+        name: "Tónování skel",
+        description: "",
+        options: [
+          {
+            option: "Добавить инфу",
+            price: "Добавить инфу",
+          }
+        ]
+      },
+      {
+        name: "Základní čištění skel",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "490 Kč",
+          }
+        ]
+      },
+      {
+        name: "Profesionální čištění skel",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "990 Kč",
+          },
+        ]
+      },
+      {
+        name: "Leštění čelního skla",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "1490 Kč",
+          }
+        ]
+      },
+      {
+        name: "Leštění všech oken",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "2990 Kč",
+          }
+        ]
+      },
+      {
+        name: "Nano ochrana „anti-déšť“ - čelní sklo",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "1099 Kč",
+          }
+        ]
+      },
+      {
+        name: "Nano ochrana „anti-déšť“ – všechna skla",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "2290 Kč"
+          }
+        ]
+      }
+    ],
   },
   {
     title: "Keramická ochrana",
-    price: "od 9 999 Kč",
+    price: "od 2 990 Kč",
     text: "Aplikace keramického povlaku, který chrání lak před nečistotami, UV zářením a dodává dlouhotrvající lesk.",
-    items: [],
+    items: [
+      {
+        name: "„Start“ – 1 rok / 12 000 km",
+        description: "",
+        options: [
+          {
+            option: "Malý automobil",
+            price: "2990 Kč",
+          },
+          {
+            option: "SUV",
+            price: "3490 Kč",
+          },
+          {
+            option: "Dodávka",
+            price: "3990 Kč",
+          }
+        ]
+      },
+      {
+        name: "„Premium“ – 3–4 roky / 30 000–40 000 km",
+        description: "",
+        options: [
+          {
+            option: "Malý automobil",
+            price: "8990 Kč",
+          },
+          {
+            option: "SUV",
+            price: "9990 Kč",
+          },
+          {
+            option: "Dodávka",
+            price: "11990 Kč",
+          }
+        ]
+      },
+    ],
   },
   {
     title: "Ochranná PPF fólie",
-    price: "od 27 990 Kč",
+    price: "od 24 990 Kč",
     text: "Instalace transparentní ochranné fólie na exponované části karoserie proti kamínkům a poškrábání.",
-    items: [],
-  },
-  {
-    title: "Anti-déšť",
-    price: "od 1 099 Kč",
-    text: "Hydrofobní ochrana, která odpuzuje vodu a nečistoty. Zlepšuje výhled za deště a usnadňuje mytí",
-    items: [],
+    items: [
+      {
+        name: "Front paket",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "od 24990 Kč",
+            //добавить отдельное поле с пометкой, что цена обговаривается индивидуально.
+          },
+        ]
+      },
+      {
+        name: "Full body",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "od 59990 Kč",
+            //добавить отдельное поле с пометкой, что цена обговаривается индивидуально.
+          }
+        ]
+      }
+    ],
   },
 ];
 
 const packages = [
   {
     name: "Start",
-    price: "6 900 Kč",
-    items: ["Mytí exteriéru", "Vysátí interiéru", "Ošetření plastů", "1stupňové leštění"],
+    price: "6 990 Kč",
+    items: ["Mytí exteriéru", "Standardní chemické čištění interiéru", "1stupňové leštění"],
   },
   {
     name: "Premium",
-    price: "14 900 Kč",
-    items: ["2stupňová korekce", "Keramická ochrana 12 měsíců", "Hloubkové čištění interiéru", "Detail kol a motorového prostoru"],
+    price: "11 990 Kč",
+    items: ["Mytí exteriéru", "1stupňové leštění + lokální leštění laku (škrábance)", "Hloubkové čištění interiéru", "Detail kol"],
   },
   {
     name: "Signature",
-    price: "od 24 900 Kč",
-    items: ["Vícekroková korekce", "Keramická ochrana 36 měsíců", "Impregnace textilu/kůže", "Prioritní termín a pickup service"],
+    price: "od 21 990 Kč",
+    items: ["Vícekroková korekce laku", "Keramická ochrana 36 měsíců", "Impregnace textilu/kůže",  "Prioritní termín a pickup service"],
   },
 ];
 
-const names = [
-  "Jan N.", "Petra K.", "Marek D.", "Lucie V.", "Tomáš H.", "Eva R.", "Daniel S.", "Adéla M.", "Pavel B.",
-  "Karolína T.", "Martin Č.", "Veronika P.", "David L.", "Michaela F.", "Roman G.", "Nikola Z.", "Filip J.", "Barbora A.",
-];
-
-const reviewTexts = [
-  "Auto vypadá lépe než při převzetí z showroomu. Precizní práce.",
-  "Skvělá komunikace, jasná cena a fantastický výsledek.",
-  "Interiér je jako nový, odstranili i staré skvrny a zápach.",
-  "Keramika drží perfektně, voda okamžitě stéká.",
-  "Velmi profesionální přístup a detailní předání vozu.",
-  "Nejlepší detailing v Praze, určitě se vrátím znovu.",
-];
-
-const reviews = Array.from({ length: 36 }, (_, i) => ({
-  name: names[i % names.length],
-  text: reviewTexts[i % reviewTexts.length],
-}));
+const showGallery = false;
 
 const navItems = [
   { href: "#about", label: "O nás" },
   { href: "#services", label: "Služby" },
   { href: "#packages", label: "Balíčky" },
   { href: "#contacts", label: "Kontakty" },
-  { href: "#works", label: "Galerie" },
+  ...(showGallery ? [{ href: "#works", label: "Galerie" }] : []),
 ];
 
 export default function Home() {
@@ -296,12 +525,13 @@ export default function Home() {
                                         <p className="text-sm font-semibold text-white/90">{opt.option}</p>
                                         <p className="text-sm font-bold text-accent">{opt.price}</p>
                                       </div>
+                                      <p className="mt-1 text-xs text-white/68">{opt.description}</p>
                                     </li>
                                   ))}
                                 </ul>
                               ) : (
                                 <p className="mt-2 text-xs text-white/55">
-                                  Přidejte cenové možnosti (option + price).
+                                  Přidejte cenové možnosti (option + description + price).
                                 </p>
                               )}
                             </li>
@@ -340,22 +570,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="works" className="section-wrap border-t border-white/10">
-          <h2 className="section-title-underline title-font text-4xl sm:text-6xl">Galerie prací</h2>
-        </section>
-
-        <section id="reviews" className="section-wrap border-t border-white/10">
-          <h2 className="section-title-underline title-font text-4xl sm:text-6xl">Recenze klientů</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((review, index) => (
-              <article key={`${review.name}-${index}`} className="card-base">
-                <p className="text-accent">★★★★★</p>
-                <p className="mt-3 text-sm text-white/85">{review.text}</p>
-                <p className="mt-4 text-xs uppercase tracking-[0.2em] text-white/55">{review.name}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+        {showGallery ? (
+          <section id="works" className="section-wrap border-t border-white/10">
+            <h2 className="section-title-underline title-font text-4xl sm:text-6xl">Galerie prací</h2>
+          </section>
+        ) : null}
 
         <section id="contacts" className="section-wrap border-t border-white/10 pb-20">
           <h2 className="title-font text-4xl sm:text-6xl">Kontakt</h2>
