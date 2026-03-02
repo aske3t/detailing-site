@@ -542,13 +542,12 @@ export default function Home() {
                                         <p className="text-sm font-semibold text-white/90">{opt.option}</p>
                                         <p className="text-sm font-bold text-accent">{opt.price}</p>
                                       </div>
-                                      <p className="mt-1 text-xs text-white/68">{opt.description}</p>
                                     </li>
                                   ))}
                                 </ul>
                               ) : (
                                 <p className="mt-2 text-xs text-white/55">
-                                  Přidejte cenové možnosti (option + description + price).
+                                  Přidejte cenové možnosti (option + price).
                                 </p>
                               )}
                             </li>
