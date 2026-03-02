@@ -341,18 +341,35 @@ const packages = [
   {
     name: "Signature",
     price: "od 21 990 Kč",
-    items: ["Vícekroková korekce laku", "Keramická ochrana 36 měsíců", "Impregnace textilu/kůže",  "Prioritní termín a pickup service"],
+    items: ["Mytí exteriéru", "Vícekroková korekce laku", "Keramická ochrana 36 měsíců", "Impregnace textilu/kůže",  "Prioritní termín a pickup service"],
   },
 ];
 
-const showGallery = false;
+const names = [
+  "Jan N.", "Petra K.", "Marek D.", "Lucie V.", "Tomáš H.", "Eva R.", "Daniel S.", "Adéla M.", "Pavel B.",
+  "Karolína T.", "Martin Č.", "Veronika P.", "David L.", "Michaela F.", "Roman G.", "Nikola Z.", "Filip J.", "Barbora A.",
+];
+
+const reviewTexts = [
+  "Auto vypadá lépe než při převzetí z showroomu. Precizní práce.",
+  "Skvělá komunikace, jasná cena a fantastický výsledek.",
+  "Interiér je jako nový, odstranili i staré skvrny a zápach.",
+  "Keramika drží perfektně, voda okamžitě stéká.",
+  "Velmi profesionální přístup a detailní předání vozu.",
+  "Nejlepší detailing v Praze, určitě se vrátím znovu.",
+];
+
+const reviews = Array.from({ length: 36 }, (_, i) => ({
+  name: names[i % names.length],
+  text: reviewTexts[i % reviewTexts.length],
+}));
 
 const navItems = [
   { href: "#about", label: "O nás" },
   { href: "#services", label: "Služby" },
   { href: "#packages", label: "Balíčky" },
   { href: "#contacts", label: "Kontakty" },
-  ...(showGallery ? [{ href: "#works", label: "Galerie" }] : []),
+  { href: "#works", label: "Galerie" },
 ];
 
 export default function Home() {
@@ -570,11 +587,22 @@ export default function Home() {
           </div>
         </section>
 
-        {showGallery ? (
-          <section id="works" className="section-wrap border-t border-white/10">
-            <h2 className="section-title-underline title-font text-4xl sm:text-6xl">Galerie prací</h2>
-          </section>
-        ) : null}
+        <section id="works" className="section-wrap border-t border-white/10">
+          <h2 className="section-title-underline title-font text-4xl sm:text-6xl">Galerie prací</h2>
+        </section>
+
+        <section id="reviews" className="section-wrap border-t border-white/10">
+          <h2 className="section-title-underline title-font text-4xl sm:text-6xl">Recenze klientů</h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {reviews.map((review, index) => (
+              <article key={`${review.name}-${index}`} className="card-base">
+                <p className="text-accent">★★★★★</p>
+                <p className="mt-3 text-sm text-white/85">{review.text}</p>
+                <p className="mt-4 text-xs uppercase tracking-[0.2em] text-white/55">{review.name}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section id="contacts" className="section-wrap border-t border-white/10 pb-20">
           <h2 className="title-font text-4xl sm:text-6xl">Kontakt</h2>
@@ -583,11 +611,11 @@ export default function Home() {
               <p className="text-sm text-white/70">Adresa</p>
               <p className="mt-2 text-xl">Urban Detailing, Zábrdovická 10a, Brno</p>
               <p className="mt-5 text-sm text-white/70">Otevírací doba</p>
-              <p className="mt-2 text-base">Po-Pá: 08:00-19:00</p>
-              <p className="text-base">So-Ne: 09:00-15:00</p>
+              <p className="mt-2 text-base">Po-Pá: 08:00-20:00</p>
+              <p className="text-base">So-Ne: 09:00-18:00</p>
               <div className="mt-6 flex flex-col gap-4">
                 <a href="tel:+420777123456" className="rounded-full border border-white/20 px-5 py-3 text-center transition-colors duration-300 hover:border-accent hover:text-accent">
-                  +420 602 561 013
+                  +420 778 514 861
                 </a>
                 <div className="flex flex-wrap items-center gap-4">
                   <div className="social-links">
