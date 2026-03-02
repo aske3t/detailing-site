@@ -345,31 +345,11 @@ const packages = [
   },
 ];
 
-const names = [
-  "Jan N.", "Petra K.", "Marek D.", "Lucie V.", "Tomáš H.", "Eva R.", "Daniel S.", "Adéla M.", "Pavel B.",
-  "Karolína T.", "Martin Č.", "Veronika P.", "David L.", "Michaela F.", "Roman G.", "Nikola Z.", "Filip J.", "Barbora A.",
-];
-
-const reviewTexts = [
-  "Auto vypadá lépe než při převzetí z showroomu. Precizní práce.",
-  "Skvělá komunikace, jasná cena a fantastický výsledek.",
-  "Interiér je jako nový, odstranili i staré skvrny a zápach.",
-  "Keramika drží perfektně, voda okamžitě stéká.",
-  "Velmi profesionální přístup a detailní předání vozu.",
-  "Nejlepší detailing v Praze, určitě se vrátím znovu.",
-];
-
-const reviews = Array.from({ length: 36 }, (_, i) => ({
-  name: names[i % names.length],
-  text: reviewTexts[i % reviewTexts.length],
-}));
-
 const navItems = [
   { href: "#about", label: "O nás" },
   { href: "#services", label: "Služby" },
   { href: "#packages", label: "Balíčky" },
   { href: "#contacts", label: "Kontakty" },
-  { href: "#works", label: "Galerie" },
 ];
 
 export default function Home() {
@@ -586,23 +566,6 @@ export default function Home() {
                     <li key={line}>• {line}</li>
                   ))}
                 </ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="works" className="section-wrap border-t border-white/10">
-          <h2 className="section-title-underline title-font text-[2.7rem] sm:text-6xl">Galerie prací</h2>
-        </section>
-
-        <section id="reviews" className="section-wrap border-t border-white/10">
-          <h2 className="section-title-underline title-font text-[2.7rem] sm:text-6xl">Recenze klientů</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((review, index) => (
-              <article key={`${review.name}-${index}`} className="card-base">
-                <p className="text-accent">★★★★★</p>
-                <p className="mt-3 text-sm text-white/85">{review.text}</p>
-                <p className="mt-4 text-xs uppercase tracking-[0.2em] text-white/55">{review.name}</p>
               </article>
             ))}
           </div>
