@@ -34,6 +34,7 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
 }
 
 .site-bg {
@@ -82,7 +83,7 @@ body {
 }
 
 .site-brand__text {
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .site-brand__text-wrap {
@@ -157,7 +158,7 @@ body {
 }
 
 .section-wrap {
-  @apply mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12;
+  @apply mx-auto w-full max-w-7xl px-4 py-14 sm:px-8 sm:py-20 lg:px-12;
 }
 
 .title-font {
@@ -171,6 +172,39 @@ body {
   font-weight: 800;
   font-variation-settings: "wght" 800;
   letter-spacing: 0.015em;
+}
+
+.service-toggle {
+  display: inline-flex;
+  min-width: 4.9rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(177, 18, 38, 0.55);
+  border-radius: 999px;
+  background: rgba(10, 26, 47, 0.72);
+  padding: 0.62rem 0.88rem;
+  color: #ffffff;
+}
+
+.service-toggle--open {
+  border-color: rgba(177, 18, 38, 0.85);
+  background: rgba(177, 18, 38, 0.16);
+}
+
+.service-toggle__label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.service-toggle__icon {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
 }
 
 .social-links {
@@ -244,4 +278,81 @@ body {
 
 section[id] {
   scroll-margin-top: var(--anchor-offset);
+}
+
+@media (min-width: 768px) {
+  .site-brand__text {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --anchor-offset: 88px;
+    --logo-size: 104px;
+    --social-logo-size: 50px;
+  }
+
+  .site-header {
+    backdrop-filter: blur(14px);
+  }
+
+  .site-header__inner {
+    min-height: 88px;
+  }
+
+  .site-header-flag {
+    width: 20px;
+  }
+
+  .site-brand {
+    flex: 1 1 auto;
+    max-width: calc(100% - 6.25rem);
+    padding-left: calc(var(--logo-size) + 0.55rem);
+  }
+
+  .site-brand__text {
+    max-width: 9ch;
+    line-height: 0.94;
+  }
+
+  .site-brand__text-wrap {
+    padding: 0.34rem 0.42rem 0.42rem;
+  }
+
+  .site-brand__text-wrap::before,
+  .site-brand__text-wrap::after {
+    left: -0.08rem;
+    right: -0.08rem;
+    height: 3px;
+  }
+
+  .site-brand__text-wrap::before {
+    top: -0.24rem;
+  }
+
+  .site-brand__text-wrap::after {
+    bottom: -0.24rem;
+  }
+
+  .card-base {
+    padding: 1.1rem;
+  }
+
+  .price-text {
+    font-size: 1.35rem;
+  }
+
+  .section-title-underline::after {
+    height: 3px;
+  }
+
+  .service-toggle {
+    min-width: auto;
+    padding: 0.58rem 0.78rem;
+  }
+
+  .service-toggle__label {
+    font-size: 0.69rem;
+  }
 }

@@ -387,7 +387,7 @@ export default function Home() {
           <span className="site-header-flag__top" />
           <span className="site-header-flag__bottom" />
         </span>
-        <div className="site-header__inner section-wrap flex items-center justify-between py-4">
+        <div className="site-header__inner section-wrap flex items-center justify-between gap-4 py-3 sm:gap-6 sm:py-4">
           <a href="#" className="site-brand transition-colors duration-300 hover:text-accent">
               <Image
                 src="/images/urban-logo-user.png"
@@ -397,7 +397,7 @@ export default function Home() {
                 className="site-brand__logo"
               />
             <span className="site-brand__text-wrap">
-              <span className="site-brand__text title-font text-3xl leading-none text-foreground">URBAN DETAILING</span>
+              <span className="site-brand__text title-font text-xl leading-none text-foreground sm:text-2xl lg:text-3xl">URBAN DETAILING</span>
             </span>
           </a>
           <nav className="hidden items-center gap-5 text-sm md:flex">
@@ -415,7 +415,7 @@ export default function Home() {
             href="https://urban-detailing.reservio.com"
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white transition-transform duration-300 hover:scale-105 hover:bg-red-800"
+            className="shrink-0 rounded-full bg-accent px-4 py-2 text-xs font-semibold text-white transition-transform duration-300 hover:scale-105 hover:bg-red-800 sm:px-5 sm:text-sm"
           >
             Rezervace
           </a>
@@ -423,21 +423,21 @@ export default function Home() {
       </header>
 
       <main className="relative z-10">
-        <section className="section-wrap pb-20 pt-16 sm:pb-24 sm:pt-24">
-          <p className="mb-4 text-sm uppercase tracking-[0.25em] text-white/70">Premium detailing studio | Brno</p>
-          <h1 className="title-font max-w-4xl text-5xl leading-[0.9] sm:text-7xl lg:text-8xl">
+        <section className="section-wrap pb-16 pt-12 sm:pb-24 sm:pt-24">
+          <p className="mb-4 text-[0.72rem] uppercase tracking-[0.22em] text-white/70 sm:text-sm sm:tracking-[0.25em]">Premium detailing studio | Brno</p>
+          <h1 className="title-font max-w-4xl text-[3.55rem] leading-[0.9] sm:text-7xl lg:text-8xl">
             Vaše auto může vypadat jako nové
           </h1>
-          <p className="mt-6 max-w-2xl text-base text-white/75 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 sm:mt-6 sm:text-lg sm:leading-8">
             Specializujeme se na špičkový auto detailing, korekce laku a keramickou ochranu pro vozy, které si zaslouží maximální péči.
           </p>
-          <p className="mt-6 max-w-2xl text-base font-bold text-white/92">
+          <p className="mt-6 max-w-2xl text-sm font-bold leading-7 text-white/92 sm:text-base">
             Máte-li otázky nebo speciální přání k rezervaci, klidně nás kontaktujte zde:
           </p>
           <div className="mt-4 flex flex-col gap-3 sm:flex-row">
             <a
               href="tel:+420602561013"
-              className="rounded-full border border-white/20 px-6 py-3 text-center font-semibold transition-all duration-300 hover:border-accent hover:text-accent"
+              className="w-full rounded-full border border-white/20 px-6 py-3 text-center font-semibold transition-all duration-300 hover:border-accent hover:text-accent sm:w-auto"
             >
               Zavolat
             </a>
@@ -445,14 +445,14 @@ export default function Home() {
               href="https://wa.me/420602561013"
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-accent px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:bg-red-800"
+              className="w-full rounded-full bg-accent px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:bg-red-800 sm:w-auto"
             >
               WhatsApp
             </a>
           </div>
         </section>
         <section id="about" className="section-wrap border-t border-white/10">
-          <h2 className="section-title-underline title-font text-4xl sm:text-6xl">O nás</h2>
+          <h2 className="section-title-underline title-font text-[2.7rem] sm:text-6xl">O nás</h2>
           <div className="card-base mt-8 space-y-4">
             <p className="text-base text-white/85">
               URBAN DETAILING — detailing v Brně
@@ -483,7 +483,7 @@ export default function Home() {
         </section>
 
         <section id="services" className="section-wrap border-t border-white/10">
-          <h2 className="section-title-underline title-font text-4xl sm:text-6xl">Služby</h2>
+          <h2 className="section-title-underline title-font text-[2.7rem] sm:text-6xl">Služby</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {services.map((category, categoryIndex) => {
               const isOpen = openServiceCategory === categoryIndex;
@@ -495,20 +495,25 @@ export default function Home() {
                     onClick={() =>
                       setOpenServiceCategory(isOpen ? null : categoryIndex)
                     }
-                    className="flex w-full items-start justify-between gap-4 text-left"
+                    className="flex w-full flex-col gap-4 text-left sm:flex-row sm:items-start sm:justify-between"
                   >
-                    <span>
-                      <h3 className="title-font text-2xl">{category.title}</h3>
+                    <span className="min-w-0 flex-1">
+                      <h3 className="title-font text-xl leading-tight sm:text-2xl">{category.title}</h3>
                       <p className="price-text">{category.price}</p>
-                      <p className="mt-2 text-sm text-white/75">{category.text}</p>
+                      <p className="mt-2 text-sm leading-6 text-white/75">{category.text}</p>
                     </span>
                     <span
-                      className={`text-2xl font-bold text-accent transition-transform duration-300 ${
-                        isOpen ? "rotate-45" : "rotate-0"
-                      }`}
+                      className={`service-toggle self-start ${isOpen ? "service-toggle--open" : ""}`}
                       aria-hidden
                     >
-                      +
+                      <span className="service-toggle__label">{isOpen ? "Zavřít" : "Detail"}</span>
+                      <span
+                        className={`service-toggle__icon transition-transform duration-300 ${
+                        isOpen ? "rotate-45" : "rotate-0"
+                        }`}
+                      >
+                        +
+                      </span>
                     </span>
                   </button>
 
@@ -519,15 +524,15 @@ export default function Home() {
                   >
                     <div className="overflow-hidden">
                       {category.items.length > 0 ? (
-                        <ul className="space-y-3">
+                        <ul className="space-y-3 border-t border-white/10 pt-4">
                           {category.items.map((item) => (
                             <li
                               key={`${category.title}-${item.name}`}
                               className="rounded-lg border border-white/12 bg-black/25 px-4 py-3"
                             >
-                              <p className="title-font text-xl">{item.name}</p>
+                              <p className="title-font text-lg leading-tight sm:text-xl">{item.name}</p>
                               {item.description ? (
-                                <p className="mt-2 text-sm text-white/72">
+                                <p className="mt-2 text-sm leading-6 text-white/72">
                                   {item.description}
                                 </p>
                               ) : null}
@@ -538,9 +543,9 @@ export default function Home() {
                                       key={`${item.name}-${opt.option}`}
                                       className="rounded-md border border-white/10 bg-black/35 px-3 py-2"
                                     >
-                                      <div className="flex items-center justify-between gap-3">
+                                      <div className="flex flex-col items-start justify-between gap-1 sm:flex-row sm:items-center sm:gap-3">
                                         <p className="text-sm font-semibold text-white/90">{opt.option}</p>
-                                        <p className="text-sm font-bold text-accent">{opt.price}</p>
+                                        <p className="text-sm font-bold text-accent sm:text-right">{opt.price}</p>
                                       </div>
                                     </li>
                                   ))}
@@ -567,14 +572,14 @@ export default function Home() {
         </section>
 
         <section id="packages" className="section-wrap border-t border-white/10">
-          <h2 className="section-title-underline title-font text-4xl sm:text-6xl">Balíčky</h2>
+          <h2 className="section-title-underline title-font text-[2.7rem] sm:text-6xl">Balíčky</h2>
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
             {packages.map((item, index) => (
               <article
                 key={item.name}
                 className={`card-base ${index === 1 ? "border-white/20 bg-black/55" : ""}`}
               >
-                <h3 className="title-font text-3xl">{item.name}</h3>
+                <h3 className="title-font text-[2rem] sm:text-3xl">{item.name}</h3>
                 <p className="price-text">{item.price}</p>
                 <ul className="mt-5 space-y-2 text-sm text-white/80">
                   {item.items.map((line) => (
@@ -587,11 +592,11 @@ export default function Home() {
         </section>
 
         <section id="works" className="section-wrap border-t border-white/10">
-          <h2 className="section-title-underline title-font text-4xl sm:text-6xl">Galerie prací</h2>
+          <h2 className="section-title-underline title-font text-[2.7rem] sm:text-6xl">Galerie prací</h2>
         </section>
 
         <section id="reviews" className="section-wrap border-t border-white/10">
-          <h2 className="section-title-underline title-font text-4xl sm:text-6xl">Recenze klientů</h2>
+          <h2 className="section-title-underline title-font text-[2.7rem] sm:text-6xl">Recenze klientů</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {reviews.map((review, index) => (
               <article key={`${review.name}-${index}`} className="card-base">
@@ -604,7 +609,7 @@ export default function Home() {
         </section>
 
         <section id="contacts" className="section-wrap border-t border-white/10 pb-20">
-          <h2 className="title-font text-4xl sm:text-6xl">Kontakt</h2>
+          <h2 className="title-font text-[2.7rem] sm:text-6xl">Kontakt</h2>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <div className="card-base">
               <p className="text-sm text-white/70">Adresa</p>
