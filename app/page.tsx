@@ -11,6 +11,7 @@ type ServiceOption = {
 type ServiceEntry = {
   name: string;
   description?: string;
+  poznamky?: string;
   options: ServiceOption[];
 };
 
@@ -18,6 +19,7 @@ type ServiceCategory = {
   title: string;
   price: string;
   text: string;
+  poznamky?: string;
   items: ServiceEntry[];
 };
 
@@ -120,34 +122,16 @@ const services: ServiceCategory[] = [
           },
           {
             option: "SUV",
-            price: "5790 Kč",
+            price: "6490 Kč",
           },
           {
             option: "Dodávka",
-            price: "6690 Kč",
+            price: "9490 Kč",
           }
         ]
       },
       {
-        name: "Leštění laku – 2 kroky",
-        description: "",
-        options: [
-          {
-            option: "Malý automobi",
-            price: "8990 Kč",
-          },
-          {
-            option: "SUV",
-            price: "9990 Kč",
-          },
-          {
-            option: "Dodávka",
-            price: "12490 Kč",
-          }
-        ]
-      },
-      {
-        name: "Kompletní korekce laku",
+        name: "Kompletní korekce laku (Tříkrokové leštění + keramická ochrana)",
         description: "",
         options:[
           {
@@ -172,12 +156,12 @@ const services: ServiceCategory[] = [
     text: "Kompletní péče o skla a světlomety – hloubkové čištění, odstranění nánosů a zašlého filmu. Volitelně renovace světlometů pro lepší viditelnost a estetiku.",
     items: [
       {
-        name: "Renovace světlometů",
+        name: "Renovace 2 světlometů + PPF",
         description: "",
         options: [
           {
             option: "Pro všechny typy vozidel",
-            price: "990 Kč"
+            price: "2490 Kč"
           },
         ]
       },
@@ -186,8 +170,8 @@ const services: ServiceCategory[] = [
         description: "",
         options: [
           {
-            option: "Добавить инфу",
-            price: "Добавить инфу",
+            option: "Pro všechny typy vozidel",
+            price: "od 2990 Kč",
           }
         ]
       },
@@ -257,10 +241,12 @@ const services: ServiceCategory[] = [
     title: "Keramická ochrana",
     price: "od 2 990 Kč",
     text: "Aplikace keramického povlaku, který chrání lak před nečistotami, UV zářením a dodává dlouhotrvající lesk.",
+    poznamky: "Před touto službou je nutné minimálně provést jednokrokové leštění laku.",
     items: [
       {
         name: "„Start“ – 1 rok / 12 000 km",
         description: "",
+        poznamky: "Jednokrokové leštění",
         options: [
           {
             option: "Malý automobil",
@@ -279,6 +265,7 @@ const services: ServiceCategory[] = [
       {
         name: "„Premium“ – 3–4 roky / 30 000–40 000 km",
         description: "",
+        poznamky: "Tříkrokové leštění",
         options: [
           {
             option: "Malý automobil",
@@ -344,6 +331,9 @@ const packages = [
     items: ["Mytí exteriéru", "Vícekroková korekce laku", "Keramická ochrana 36 měsíců", "Impregnace textilu/kůže",  "Prioritní termín a pickup service"],
   },
 ];
+
+const servicesPriceWarning =
+  "Uvedené ceny jsou pouze orientační. Konečná cena závisí na konkrétním vozidle, jeho stavu a bude stanovena při vstupní diagnostice.";
 
 const navItems = [
   { href: "#about", label: "O nás" },
@@ -464,6 +454,7 @@ export default function Home() {
 
         <section id="services" className="section-wrap border-t border-white/10">
           <h2 className="section-title-underline title-font text-[2.7rem] sm:text-6xl">Služby</h2>
+          <p className="services-warning mt-4">{servicesPriceWarning}</p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {services.map((category, categoryIndex) => {
               const isOpen = openServiceCategory === categoryIndex;
@@ -481,6 +472,9 @@ export default function Home() {
                       <h3 className="title-font text-xl leading-tight sm:text-2xl">{category.title}</h3>
                       <p className="price-text">{category.price}</p>
                       <p className="mt-2 text-sm leading-6 text-white/75">{category.text}</p>
+                      {category.poznamky ? (
+                        <p className="service-note mt-3">{category.poznamky}</p>
+                      ) : null}
                     </span>
                     <span
                       className={`service-toggle self-start ${isOpen ? "service-toggle--open" : ""}`}
@@ -515,6 +509,9 @@ export default function Home() {
                                 <p className="mt-2 text-sm leading-6 text-white/72">
                                   {item.description}
                                 </p>
+                              ) : null}
+                              {item.poznamky ? (
+                                <p className="service-note mt-3">{item.poznamky}</p>
                               ) : null}
                               {item.options.length > 0 ? (
                                 <ul className="mt-3 space-y-2">
