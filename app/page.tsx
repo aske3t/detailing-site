@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 
 type ServiceOption = {
   option: string;
@@ -344,11 +344,38 @@ const navItems = [
 
 export default function Home() {
   const [openServiceCategory, setOpenServiceCategory] = useState<number | null>(null);
+  const [headerProgress, setHeaderProgress] = useState(0);
+  const heroSectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const syncHeaderMode = () => {
+      const hero = heroSectionRef.current;
+      if (!hero) return;
+      const startY = window.innerWidth < 768 ? 8 : 18;
+      const endY = hero.offsetTop + hero.offsetHeight - (window.innerWidth < 768 ? 92 : 136);
+      const range = Math.max(1, endY - startY);
+      const nextProgress = Math.min(1, Math.max(0, (window.scrollY - startY) / range));
+      setHeaderProgress((prev) => (Math.abs(prev - nextProgress) < 0.01 ? prev : nextProgress));
+    };
+
+    syncHeaderMode();
+    window.addEventListener("scroll", syncHeaderMode, { passive: true });
+    window.addEventListener("resize", syncHeaderMode);
+
+    return () => {
+      window.removeEventListener("scroll", syncHeaderMode);
+      window.removeEventListener("resize", syncHeaderMode);
+    };
+  }, []);
+
+  const headerStyle: CSSProperties = {
+    ["--header-progress" as string]: headerProgress.toString(),
+  };
 
   return (
     <div className="relative min-h-screen text-foreground">
       <div className="site-bg" aria-hidden />
-      <header className="site-header sticky top-0 z-40 border-b border-white/10">
+      <header className="site-header sticky top-0 z-40 border-b border-white/10" style={headerStyle}>
         <span className="site-header-flag site-header-flag--left" aria-hidden>
           <span className="site-header-flag__top" />
           <span className="site-header-flag__bottom" />
@@ -357,7 +384,7 @@ export default function Home() {
           <span className="site-header-flag__top" />
           <span className="site-header-flag__bottom" />
         </span>
-        <div className="site-header__inner section-wrap flex items-center justify-between gap-4 py-3 sm:gap-6 sm:py-4">
+        <div className="site-header__inner site-header-wrap flex items-center justify-between gap-4 sm:gap-6">
           <a href="#" className="site-brand transition-colors duration-300 hover:text-accent">
               <Image
                 src="/images/urban-logo-user.png"
@@ -370,7 +397,7 @@ export default function Home() {
               <span className="site-brand__text title-font text-xl leading-none text-foreground sm:text-2xl lg:text-3xl">URBAN DETAILING</span>
             </span>
           </a>
-          <nav className="hidden items-center gap-5 text-sm md:flex">
+          <nav className="site-nav hidden items-center gap-5 text-sm md:flex">
             {navItems.map((item) => (
               <a
                 key={item.href}
@@ -385,7 +412,7 @@ export default function Home() {
             href="https://urban-detailing.reservio.com"
             target="_blank"
             rel="noreferrer"
-            className="shrink-0 rounded-full bg-accent px-4 py-2 text-xs font-semibold text-white transition-transform duration-300 hover:scale-105 hover:bg-red-800 sm:px-5 sm:text-sm"
+            className="site-reserve-btn shrink-0 rounded-full bg-accent px-4 py-2 text-xs font-semibold text-white transition-colors duration-300 hover:bg-red-800 sm:px-5 sm:text-sm"
           >
             Rezervace
           </a>
@@ -393,7 +420,7 @@ export default function Home() {
       </header>
 
       <main className="relative z-10">
-        <section className="section-wrap pb-16 pt-12 sm:pb-24 sm:pt-24">
+        <section ref={heroSectionRef} className="section-wrap pb-16 pt-12 sm:pb-24 sm:pt-24">
           <p className="mb-4 text-[0.72rem] uppercase tracking-[0.22em] text-white/70 sm:text-sm sm:tracking-[0.25em]">Premium detailing studio | Brno</p>
           <h1 className="title-font max-w-4xl text-[3.55rem] leading-[0.9] sm:text-7xl lg:text-8xl">
             Vaše auto může vypadat jako nové
