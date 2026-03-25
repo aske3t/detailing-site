@@ -35,36 +35,56 @@ const services: ServiceCategory[] = [
         options: [
           {
             option: "Malý automobil",
-            price: "990 Kč",
+            price: "590 Kč",
           },
           {
             option: "SUV",
-            price: "1490 Kč",
+            price: "690 Kč",
           },
           {
             option: "Dodávka",
-            price: "1790 Kč",
+            price: "890 Kč",
           }
         ],
       },
       {
-        name: "Standardní chemické čištění interiéru",
-        description: "1990 Kč",
+        name: "Сhemické čištění interiéru 'Standart'",
+        description: "Čištění interiéru s použitím autokosmetiky",
+        poznamky: "Bez demontáže.",
         options: [
           {
             option: "Malý automobil",
-            price: "1990",
+            price: "1990 Kč",
           },
           {
             option: "SUV",
-            price: "2590",
+            price: "2590 Kč",
           },
           {
             option: "Dodávka",
-            price: "2990",
+            price: "2990 Kč",
           }
         ]
       },
+      {
+        name: "Сhemické čištění interiéru 'Plus'",
+        description: "Důkladné čištění interiéru s použitím autokosmetiky a demontáží vybraných částí",
+        poznamky: "S demontáží.",
+        options: [
+          {
+            option: "Malý automobil",
+            price: "2990 Kč",
+          },
+          {
+            option: "SUV",
+            price: "3990 Kč",
+          },
+          {
+            option: "Dodávka",
+            price: "4490 Kč",
+          }
+        ]
+      }
     ],
   },
   {
@@ -89,28 +109,15 @@ const services: ServiceCategory[] = [
             price: "890 Kč",
           },
         ]
-      },
-      {
-        name: "Profesionální mytí karoserie s použitím autokosmetiky",
-        description: "",
-        options: [
-          {
-            option: "Malý automobil",
-            price: "1500 Kč",
-          },
-          {
-            option: "SUV/Dodávka",
-            price: "1800 Kč",
-          },
-        ]
       }
 
     ],
   },
   {
-    title: "Leštění laku",
-    price: "od 4 990 Kč",
-    text: "Strojní leštění laku pro odstranění mikroškrábanců, hologramů a navrácení hlubokého lesku karoserie.",
+    title: "Leštění laku a keramická ochrana",
+    price: "od 2 990 Kč",
+    text: "Strojní leštění laku pro odstranění mikroškrábanců, hologramů a navrácení hlubokého lesku karoserie doplněné o keramickou ochranu s dlouhodobým efektem.",
+    poznamky: "Před aplikací keramické ochrany je nutné minimálně provést jednokrokové leštění laku.",
     items: [
       {
         name: "Leštění laku – 1 krok",
@@ -136,15 +143,53 @@ const services: ServiceCategory[] = [
         options:[
           {
             option: "Malý automobil",
-            price: "12990 Kč",
+            price: "9990 Kč",
           },
           {
             option: "SUV",
-            price: "14990 Kč",
+            price: "12990 Kč",
           },
           {
             option: "Dodávka",
-            price: "17490 Kč",
+            price: "17990 Kč",
+          }
+        ]
+      },
+      {
+        name: "Keramická ochrana „Standart“ ",
+        description: "Ochrana laku s předpokládanou životností přibližně 1 rok nebo do 12 000 km.",
+        poznamky: "Jednokrokové leštění",
+        options: [
+          {
+            option: "Malý automobil",
+            price: "6090 Kč",
+          },
+          {
+            option: "SUV",
+            price: "7790 Kč",
+          },
+          {
+            option: "Dodávka",
+            price: "11290 Kč",
+          }
+        ]
+      },
+      {
+        name: "Kermaická ochrana „Premium“ ",
+        description: "Prémiová ochrana laku s předpokládanou životností přibližně 3–4 roky nebo 30 000–40 000 km.",
+        poznamky: "Tříkrokové leštění",
+        options: [
+          {
+            option: "Malý automobil",
+            price: "13490 Kč",
+          },
+          {
+            option: "SUV",
+            price: "16990 Kč",
+          },
+          {
+            option: "Dodávka",
+            price: "22490 Kč",
           }
         ]
       }
@@ -238,65 +283,38 @@ const services: ServiceCategory[] = [
     ],
   },
   {
-    title: "Keramická ochrana",
-    price: "od 2 990 Kč",
-    text: "Aplikace keramického povlaku, který chrání lak před nečistotami, UV zářením a dodává dlouhotrvající lesk.",
-    poznamky: "Před touto službou je nutné minimálně provést jednokrokové leštění laku.",
-    items: [
-      {
-        name: "„Start“ – 1 rok / 12 000 km",
-        description: "",
-        poznamky: "Jednokrokové leštění",
-        options: [
-          {
-            option: "Malý automobil",
-            price: "2990 Kč",
-          },
-          {
-            option: "SUV",
-            price: "3490 Kč",
-          },
-          {
-            option: "Dodávka",
-            price: "3990 Kč",
-          }
-        ]
-      },
-      {
-        name: "„Premium“ – 3–4 roky / 30 000–40 000 km",
-        description: "",
-        poznamky: "Tříkrokové leštění",
-        options: [
-          {
-            option: "Malý automobil",
-            price: "8990 Kč",
-          },
-          {
-            option: "SUV",
-            price: "9990 Kč",
-          },
-          {
-            option: "Dodávka",
-            price: "11990 Kč",
-          }
-        ]
-      },
-    ],
-  },
-  {
     title: "Ochranná PPF fólie",
-    price: "od 24 990 Kč",
+    price: "od 34 990 Kč",
     text: "Instalace transparentní ochranné fólie na exponované části karoserie proti kamínkům a poškrábání.",
     items: [
       {
-        name: "Front paket",
+        name: "Bikini",
         description: "",
         options: [
           {
             option: "Pro všechny typy vozidel",
-            price: "od 24990 Kč",
-            //добавить отдельное поле с пометкой, что цена обговаривается индивидуально.
+            price: "od 34990 Kč",
           },
+        ]
+      },
+      {
+        name: "Front",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "od 44990 Kč",
+          }
+        ]
+      },
+      {
+        name: "Full front",
+        description: "",
+        options: [
+          {
+            option: "Pro všechny typy vozidel",
+            price: "od 59990 Kč",
+          }
         ]
       },
       {
@@ -305,8 +323,7 @@ const services: ServiceCategory[] = [
         options: [
           {
             option: "Pro všechny typy vozidel",
-            price: "od 59990 Kč",
-            //добавить отдельное поле с пометкой, что цена обговаривается индивидуально.
+            price: "od 89990 Kč",
           }
         ]
       }
