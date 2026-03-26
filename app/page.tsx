@@ -26,7 +26,7 @@ type ServiceCategory = {
 const services: ServiceCategory[] = [
   {
     title: "Chemické čištění interiéru",
-    price: "od 990 Kč",
+    price: "od 590 Kč",
     text: "Důkladné čištění sedadel, koberců a plastových částí interiéru s odstraněním nečistot, skvrn a zápachu.",
     items: [
       {
@@ -115,7 +115,7 @@ const services: ServiceCategory[] = [
   },
   {
     title: "Leštění laku a keramická ochrana",
-    price: "od 2 990 Kč",
+    price: "od 4 990 Kč",
     text: "Strojní leštění laku pro odstranění mikroškrábanců, hologramů a navrácení hlubokého lesku karoserie doplněné o keramickou ochranu s dlouhodobým efektem.",
     poznamky: "Před aplikací keramické ochrany je nutné minimálně provést jednokrokové leštění laku.",
     items: [
@@ -138,7 +138,7 @@ const services: ServiceCategory[] = [
         ]
       },
       {
-        name: "Kompletní korekce laku (Tříkrokové leštění + keramická ochrana)",
+        name: "Tříkrokové leštění",
         description: "",
         options:[
           {
